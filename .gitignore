@@ -174,3 +174,32 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Output & temp files
+*.csv
+*.log
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+*.~*
+*.out
+*.xlsx
+*.xls
+*.zip
+
+# Python-specific caches
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+*.pyo
+
+# VS Code settings
+.vscode/
+
+# OS files
+Thumbs.db
+.DS_Store
