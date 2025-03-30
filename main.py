@@ -34,6 +34,38 @@ if not all([url, username, password]):
 logger.info("Создаём подключение к Confluence...")
 my_conflu = Confluence(url=url, username=username, password=password)
 
+def print_pretty_tree(confluence_client, page_id, file, prefix=""):
+    try:
+        page = confluence_client.get_page_by_id(page_id)
+        title = page.get('title', '[без названия]')
+        file.write(f"{prefix}├── {title} (ID: {page_id})\n")
+
+        children = list(confluence_client.get_child_pages(page_id))  # 💡 фикс здесь
+        total = len(children)
+
+        for i, child in enumerate(children):
+            is_last = (i == total - 1)
+            new_prefix = prefix + ("    " if is_last else "│   ")
+            print_pretty_tree(confluence_client, child['id'], file, new_prefix)
+    except Exception as e:
+        file.write(f"{prefix}├── [Ошибка при обработке страницы {page_id}: {e}]\n")
+
+
+def print_page_tree(confluence_client, page_id, level=0):
+    try:
+        page = confluence_client.get_page_by_id(page_id)
+        title = page.get('title', '[без названия]')
+        indent = "    " * level
+        logger.info(f"{indent}- {title} (ID: {page_id})")
+
+        children = confluence_client.get_child_pages(page_id)
+        for child in children:
+            print_page_tree(confluence_client, child['id'], level + 1)
+    except Exception as e:
+        logger.error(f"Ошибка при обработке страницы {page_id}: {e}")
+
+
+
 # Получение дочерних страниц с рекурсией
 def get_all_child_pages(my_conflu, parent_page_id, output_file):
     try:
@@ -105,3 +137,9 @@ for index, row in parent_page_ids.iterrows():
 # Финальный экспорт
 main_df.to_csv('file.csv', index=False)
 logger.info("Файл 'file.csv' успешно создан.")
+
+logger.info("📄 Генерирую красивое дерево страниц в tree.txt...")
+with open("tree.txt", "w", encoding="utf-8") as f:
+    f.write(".\n")
+    print_pretty_tree(my_conflu, "103981636", f)
+logger.info("✅ Готово! Дерево сохранено в tree.txt")
