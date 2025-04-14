@@ -1,18 +1,18 @@
 Child_name_1Set_Vol_Kos,Position_1Set_Vol_Kos,Supplier_ID_1Set_Vol_Kos,Child_name_LSLive.Волейбол.Весь матч,Position_LSLive.Волейбол.Весь матч,Supplier_ID_LSLive.Волейбол.Весь матч,Child_name_Руслан_Волейбол_ВесьМатч,Position_Руслан_Волейбол_ВесьМатч,Supplier_ID_Руслан_Волейбол_ВесьМатч
 MM ACL Live. Волейбол. 1-й сет. Победитель,2010,Winner12-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Победитель,0001,52,Live. Волейбол. Весь матч. Победитель,0010,Winner12-Overalltime-Set-EventPart
-MM ACL Live. Волейбол. 1-й сет. Фора {hcp} в гонке до {indicatorNumber} очков,20100,HandicapRace-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Фора по сетам,0002,866,Live. Волейбол. Весь матч. Фора по сетам,0020,Handicap-Overalltime-Set-EventPart
-MM ACL Live. Волейбол. 1-й сет. Тотал {total} в гонке до {indicatorNumber} очков,20110,TotalRace-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Тотал по сетам,0003,165,Live. Волейбол. Весь матч. Тотал по сетам,0030,Total-Overalltime-Set-EventPart
+MM ACL Live. Волейбол. 1-й сет. Фора {hcp} в гонке до {indicatorNumber} очков,20100,HandicapRace-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Тотал по сетам,0002,165,Live. Волейбол. Весь матч. Фора по сетам,0020,Handicap-Overalltime-Set-EventPart
+MM ACL Live. Волейбол. 1-й сет. Тотал {total} в гонке до {indicatorNumber} очков,20110,TotalRace-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Фора по сетам,0003,866,Live. Волейбол. Весь матч. Тотал по сетам,0030,Total-Overalltime-Set-EventPart
 MM ACL Live. Волейбол. 1-й сет. Инд. тотал КОМ1 {total} в гонке до {indicatorNumber} очков,20120,TotalHomeRace-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Точный счёт,0004,6,Live. Волейбол. Весь матч. Точный счёт,0040,ExactScore-Overalltime-Set-EventPart
-MM ACL Live. Волейбол. 1-й сет. Инд. тотал КОМ2 {total} в гонке до {indicatorNumber} очков,20130,TotalAwayRace-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Фора по очкам.,0005,1558,Live. Волейбол. Весь матч. Победитель по очкам,0050,Winner1X2-Overalltime-Point-EventPart
-MM ACL Live. Волейбол. 1-й сет. Победитель + Разница очков,2020,WinnerAndDifferenceN-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Тотал по очкам,0006,2,Live. Волейбол. Весь матч. Фора по очкам,0060,Handicap-Overalltime-Point-EventPart
-MM ACL Live. Волейбол. 1-й сет. Фора,2030,Handicap-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Инд. тотал по очкам КOM1,0007,101,Live. Волейбол. Весь матч. Тотал по очкам,0070,Handicap-Overalltime-Point-EventPart
-MM ACL Live. Волейбол. 1-й сет. Тотал,2040,Total-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Инд. тотал по очкам КOM2,0008,102,Live. Волейбол. Весь матч. Инд. тотал по очкам КОМ1,0080,TotalHome-Overalltime-Point-EventPart
-MM ACL Live. Волейбол. 1-й сет. Инд. тотал КОМ1,2050,TotalHome-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Победитель + Разница мячей,0009,461,Live. Волейбол. Весь матч. Инд. тотал по очкам КОМ2,0090,TotalAway-Overalltime-Point-EventPart
-MM ACL Live. Волейбол. 1-й сет. Инд. тотал КОМ2,2060,TotalAway-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Гонка до N очков,0010,341,,,
-MM ACL Live. Волейбол. 1-й сет. Чёт/Нечет,2070,EvenOdd-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Победитель по итогу 2-х сетов,0011,911,,,
-MM ACL Live. Волейбол. 1-й сет. Кто выиграет {IndicatorNumber}-е очко,2080,NIndicatorWinner-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Победитель по итогу 3-х сетов,0012,912,,,
-MM ACL Live. Волейбол. 1-й сет. Гонка до {indicatorNumber} очков,2090,Race3Way-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Будет ли 5-й сет?,0013,90,,,
-,,,"LSLive.Волейбол.Весь матч.Будет ли ""длинный"" сет?",0014,834,,,
-,,,LSLive.Волейбол.Весь матч.Чет/нечет по очкам,0015,5,,,
-,,,LSLive.Волейбол.Весь матч.Чет/нечет по очкам КОМ1,0016,198,,,
-,,,LSLive.Волейбол.Весь матч.Чет/нечет по очкам КОМ2,0017,199,,,
+MM ACL Live. Волейбол. 1-й сет. Инд. тотал КОМ2 {total} в гонке до {indicatorNumber} очков,20130,TotalAwayRace-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Тотал по очкам,0005,2,Live. Волейбол. Весь матч. Победитель по очкам,0050,Winner1X2-Overalltime-Point-EventPart
+MM ACL Live. Волейбол. 1-й сет. Точный счёт по очкам,20140,ExactScore-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Фора по очкам.,0006,1558,Live. Волейбол. Весь матч. Фора по очкам,0060,Handicap-Overalltime-Point-EventPart
+MM ACL Live. Волейбол. 1-й сет. Победитель + Разница очков,2020,WinnerAndDifferenceN-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Инд. тотал по очкам КOM1,0007,101,Live. Волейбол. Весь матч. Тотал по очкам,0070,Handicap-Overalltime-Point-EventPart
+MM ACL Live. Волейбол. 1-й сет. Фора,2030,Handicap-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Инд. тотал по очкам КOM2,0008,102,Live. Волейбол. Весь матч. Инд. тотал по очкам КОМ1,0080,TotalHome-Overalltime-Point-EventPart
+MM ACL Live. Волейбол. 1-й сет. Тотал,2040,Total-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Победитель + Разница мячей,0009,461,Live. Волейбол. Весь матч. Инд. тотал по очкам КОМ2,0090,TotalAway-Overalltime-Point-EventPart
+MM ACL Live. Волейбол. 1-й сет. Инд. тотал КОМ1,2050,TotalHome-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Гонка до N очков,0010,341,,,
+MM ACL Live. Волейбол. 1-й сет. Инд. тотал КОМ2,2060,TotalAway-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Победитель по итогу 2-х сетов,0011,911,,,
+MM ACL Live. Волейбол. 1-й сет. Чёт/Нечет,2070,EvenOdd-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Победитель по итогу 3-х сетов,0012,912,,,
+MM ACL Live. Волейбол. 1-й сет. Кто выиграет {IndicatorNumber}-е очко,2080,NIndicatorWinner-Set1-Point-EventPart,LSLive.Волейбол.Весь матч.Будет ли 5-й сет?,0013,90,,,
+MM ACL Live. Волейбол. 1-й сет. Гонка до {indicatorNumber} очков,2090,Race3Way-Set1-Point-EventPart,"LSLive.Волейбол.Весь матч.Будет ли ""длинный"" сет?",0014,834,,,
+,,,LSLive.Волейбол.Весь матч.Чёт/нечет по очкам,0015,5,,,
+,,,LSLive.Волейбол.Весь матч.Чёт/нечет по очкам КОМ1,0016,198,,,
+,,,LSLive.Волейбол.Весь матч.Чёт/нечет по очкам КОМ2,0017,199,,,

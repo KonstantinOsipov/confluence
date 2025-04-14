@@ -64,8 +64,6 @@ def print_page_tree(confluence_client, page_id, level=0):
     except Exception as e:
         logger.error(f"Ошибка при обработке страницы {page_id}: {e}")
 
-
-
 # Получение дочерних страниц с рекурсией
 def get_all_child_pages(my_conflu, parent_page_id, output_file):
     try:
@@ -141,5 +139,5 @@ logger.info("Файл 'file.csv' успешно создан.")
 logger.info("📄 Генерирую красивое дерево страниц в tree.txt...")
 with open("tree.txt", "w", encoding="utf-8") as f:
     f.write(".\n")
-    print_pretty_tree(my_conflu, "103981636", f)
+    print_pretty_tree(my_conflu, "192101019", f)
 logger.info("✅ Готово! Дерево сохранено в tree.txt")
