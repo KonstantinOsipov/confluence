@@ -26,6 +26,8 @@ url = os.getenv("CONFLUENCE_URL")
 username = os.getenv("CONFLUENCE_USERNAME")
 password = os.getenv("CONFLUENCE_PASSWORD")
 
+parent_page_id = 192101019
+
 if not all([url, username, password]):
     logger.error("Не найдены переменные окружения. Проверь файл .env.")
     exit(1)
@@ -86,58 +88,37 @@ def get_all_child_pages(my_conflu, parent_page_id, output_file):
     except Exception as e:
         logger.error(f"Ошибка при обработке дочерней страницы {parent_page_id}: {e}")
 
-# Родительские страницы
-parent_page_ids = pd.DataFrame({
-    "page_id": ['261018044', '209226089', '249268548'],
-    "supplier": ["1Set_Vol_Kos", "LSLive.Волейбол.Весь матч", "Руслан_Волейбол_ВесьМатч"]
-})
-
-main_df = pd.DataFrame()
-my_df = pd.DataFrame()
-
-for index, row in parent_page_ids.iterrows():
-    page = row['page_id']
-    supplier = row['supplier']
-    logger.info(f"Обрабатываем поставщика: {supplier} (ID: {page})")
-
+def save_all_pages_content(my_conflu, parent_page_id, output_file):
+    """
+    Рекурсивно сохраняет содержимое всех страниц в output_file.
+    """
     try:
-        page_title = my_conflu.get_page_by_id(page)['title']
-        child_pages = my_conflu.get_child_pages(page)
-
-        for index, page in enumerate(child_pages):
-            child_page_title = page['title']
-            child_page_id = page['id']
-            content = my_conflu.get_page_by_id(child_page_id, 'version,body.view')
-            html_content = str(content['body']['view']['value'])
+        child_pages = my_conflu.get_child_pages(parent_page_id)
+        for child_page in child_pages:
+            # Получаем содержимое страницы
+            page_data = my_conflu.get_page_by_id(child_page['id'], 'body.view')
+            html_content = str(page_data['body']['view']['value'])
             soup = BeautifulSoup(html_content, 'html.parser')
+            text_content = soup.get_text(separator='\n').strip()
 
-            position_key = soup.find('th', text='Позиция')
-            position_value = int(position_key.find_next('td').text.strip()) if position_key else None
+            output_file.write(f"\n=== {child_page['title']} (ID: {child_page['id']}) ===\n")
+            output_file.write(text_content + "\n")
 
-            supplier_key = soup.find('th', text='ID пари у поставщика')
-            supplier_value = supplier_key.find_next('td').text.strip() if supplier_key else None
-
-            my_df = my_df._append([{
-                'Child_name': child_page_title,
-                'Position': "{:04d}".format(position_value) if position_value is not None else None,
-                'Supplier_ID': supplier_value
-            }], ignore_index=True)
-
-        my_df = my_df.sort_values(by='Position', ignore_index=True)
-        my_df.columns = my_df.columns + '_' + supplier
-        main_df = main_df.join(my_df, how='outer')
-        logger.info(f"Данные по '{supplier}' добавлены. Размер main_df: {main_df.shape}")
-        my_df = pd.DataFrame()
-
+            # Рекурсивно обрабатываем дочерние страницы
+            save_all_pages_content(my_conflu, child_page['id'], output_file)
     except Exception as e:
-        logger.error(f"Ошибка при обработке поставщика {supplier}: {e}")
+        logger.error(f"Ошибка при сохранении содержимого страницы {parent_page_id}: {e}")
 
-# Финальный экспорт
-main_df.to_csv('file.csv', index=False)
-logger.info("Файл 'file.csv' успешно создан.")
 
 logger.info("📄 Генерирую красивое дерево страниц в tree.txt...")
 with open("tree.txt", "w", encoding="utf-8") as f:
     f.write(".\n")
-    print_pretty_tree(my_conflu, "192101019", f)
+    print_pretty_tree(my_conflu, parent_page_id, f)
 logger.info("✅ Готово! Дерево сохранено в tree.txt")
+
+# Пример использования:
+logger.info("💾 Сохраняю содержимое всех страниц в all_pages_content.txt...")
+with open("all_pages_content.txt", "w", encoding="utf-8") as f:
+    f.write("Содержимое всех страниц:\n")
+    save_all_pages_content(my_conflu, parent_page_id, f)
+logger.info("✅ Готово! Содержимое сохранено в all_pages_content.txt")
